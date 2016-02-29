@@ -209,6 +209,13 @@
 
 #pragma mark - Private
 
+/**
+ * Computes the operations necessary to go from the from section list to the to section list, and
+ * returns one or more SGListTransition objects containing them. UITableView and UICollectionView place
+ * some limits on the types of animation operations that can be grouped together in a single transition,
+ * so multiple transitions are returned in some situations, to avoid placing incompatible operations in
+ * the same transition.
+ */
 + (NSArray<SGListTransition *> *)transitionObjectsFromSections:(NSArray<SGListSection *> *)oldSections
                                                     toSections:(NSArray<SGListSection *> *)newSections
                                                 doSectionMoves:(BOOL)doSectionMoves
