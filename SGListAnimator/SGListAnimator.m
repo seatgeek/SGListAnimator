@@ -6,7 +6,7 @@
 //  Copyright © 2015 SeatGeek. All rights reserved.
 //
 
-#import "SGListAnimator_ForUnitTests.h"
+#import "SGListAnimator.h"
 #import "SGListSection.h"
 #import "SGListTransition.h"
 
