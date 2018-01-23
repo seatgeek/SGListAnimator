@@ -12,10 +12,15 @@
  * These objects model sections in a table view or collection view. The items
  * property and one of title/identifier should be set.
  */
-@interface SGListSection : NSObject
+@interface SGListSection : NSObject <NSCopying> 
 
 /** Convenience */
+
+/// Create a section with a section title and content
 + (nonnull instancetype)sectionWithTitle:(nonnull NSString *)title items:(nonnull NSArray *)items;
+
+/// Create a section with content but no section title
++ (nonnull instancetype)sectionWithIdentifier:(nonnull NSString *)identifier items:(nonnull NSArray *)items;
 
 /**
  * Section title -- this is normally a convenient way to identify your sections. Each

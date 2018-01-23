@@ -13,21 +13,34 @@
 #pragma mark - Initialization
 
 + (instancetype)sectionWithTitle:(NSString *)title items:(NSArray *)items {
-    SGListSection *section = [self new];
+    SGListSection *section = self.new;
     section.title = title;
     section.items = items;
     return section;
 }
 
-#pragma mark - Public
-
-- (NSString *)title {
-    NSAssert(!self.identifier || [self.identifier isKindOfClass:[NSString class]], @"Don't mix and match SGListSection -title and -identifier properties.");
-    return self.identifier;
++ (nonnull instancetype)sectionWithIdentifier:(nonnull NSString *)identifier items:(nonnull NSArray *)items {
+    SGListSection *section = self.new;
+    section.identifier = identifier;
+    section.items = items;
+    return section;
 }
 
+#pragma mark - Setters
+
 - (void)setTitle:(NSString *)title {
+    _title = title;
     self.identifier = title;
+}
+
+#pragma mark - NSCopying
+
+- (id)copyWithZone:(NSZone *)zone {
+    SGListSection *copy = SGListSection.new;
+    copy.title = self.title;
+    copy.identifier = self.identifier;
+    copy.items = self.items.copy;
+    return copy;
 }
 
 #pragma mark - NSObject
@@ -37,7 +50,7 @@
         return NO;
     }
     SGListSection *otherListSection = (SGListSection *)other;
-    return [self.title isEqualToString:otherListSection.title] &&
+    return [self.identifier isEqualToString:otherListSection.identifier] &&
            [self.items isEqual:otherListSection.items];
 }
 
