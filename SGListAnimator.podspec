@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.homepage     = 'https://github.com/seatgeek/SGListAnimator'
   s.license      = { :type => 'BSD', :file => 'LICENSE' }
   s.author       = 'SeatGeek'
-  s.ios.deployment_target = '7.0'
+  s.ios.deployment_target = '9.0'
   s.source       = { :git => 'https://github.com/seatgeek/SGListAnimator.git', :tag => s.version }
   s.source_files = 'SGListAnimator/*.{h,m}'
   s.requires_arc = true
