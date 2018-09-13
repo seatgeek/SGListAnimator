@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'SGListAnimator'
-  s.version      = '1.0.0'
+  s.version      = '1.0.1'
   s.summary      = "Animated transitions for your table and collection views"
   s.description = %{
     SGListAnimator provides animated transitions for your table and collection
